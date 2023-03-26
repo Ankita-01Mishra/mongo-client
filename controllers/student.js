@@ -13,11 +13,11 @@ const studentEnrollment=async(req,res)=>{
 
 const getStudentData= async(req,res)=>{
     const queryParams=req.query
-    const query={cgpa:{$eq: +queryParams.cgpa}}
-    console.log(query);
-    // console.log(queryParams); 
+    // const query={cgpa:{$eq: +queryParams.cgpa}}
+    // console.log(query);
+    console.log(queryParams); 
     try{
-        const result=await mongoClient.findInDb(query)
+        const result=await mongoClient.findInDb(queryParams)
         console.log('The result of database operation ->',result);
         return res.status(200).send(result);  
     }catch(error){
